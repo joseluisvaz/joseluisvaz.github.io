@@ -8,4 +8,5 @@ redirect_from:
   - /about.html
 ---
 
+I am a master student at ETH Zurich.
 Welcome to my webpage
