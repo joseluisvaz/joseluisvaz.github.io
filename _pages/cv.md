@@ -12,13 +12,13 @@ redirect_from:
 Education
 ======
 * **2021 (Expected): ETH Zurich**
-  * **MSc. Robotics, Systems and Control**
+  * MSc. Robotics, Systems and Control
 
 * **2018: Tec de Monterrey**
-  * **BSc. Mechatronics Engineering**
+  * BSc. Mechatronics Engineering
 
 * **2015 (Semester abroad): UAS Esslingen**
-  * **BSc. Automotive Engineering**
+  * BSc. Automotive Engineering
 
 Work experience
 ======
