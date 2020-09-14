@@ -18,7 +18,7 @@ After AMZ driverless, I spent time at **Embotech AG** where I designed optimal c
 
 ## Publications
 
-<table class="table table-hover" cellspacing="0" cellpadding="0">
+<table class="table table-hover">
 <tr>
 <td class="col-md-3"><a href='https://arxiv.org/abs/2003.04882' target='_blank'><img src="/images/control_diagram.jpg"/></a> </td>
 <td>
