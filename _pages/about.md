@@ -18,7 +18,7 @@ After AMZ driverless, I spent time at **Embotech AG** where I designed optimal c
 
 ## Publications
  
-![image](/images/control_diagram.jpg){: style="float: left" }
+![image](/images/control_diagram.jpg){: .align-left}
 **Optimization Based Hierarchical Motion Planning for Autonomous Racing**
 _José L. Vázquez*_, Marius Brühlmeier*, Alexander Liniger*, Alisa Rupenyan, John Lygeros
 IROS 2020 Best Paper Award Finalist [[arXiv](https://arxiv.org/abs/2003.04882)]
