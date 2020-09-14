@@ -14,16 +14,27 @@ During my time at **ETH Zurich**, I had the pleasure to be part of **AMZ driverl
 
 After AMZ driverless, I spent time at **Embotech AG** where I designed optimal control and estimation algorithms for commercial vehicles as part of my master's degree internship. Recently, I have been interested in how to use **Machine Learning** to assist classical robotics algorithms.
 
-![pilatus](/images/pilatus_wide.jpg)
-
 ## Publications
- 
-![image](/images/control_diagram.jpg){: .align-left}
-**Optimization Based Hierarchical Motion Planning for Autonomous Racing**
-_José L. Vázquez*_, Marius Brühlmeier*, Alexander Liniger*, Alisa Rupenyan, John Lygeros
-IROS 2020 Best Paper Award Finalist [[arXiv](https://arxiv.org/abs/2003.04882)]
 
-{% include sidebyside.html image_path="/images/control_diagram.jpg" title="Some title text" description="Some more text that will appear to the left of the image." %}
+<table class="table table-hover">
+<tr>
+<td class="col-md-3"><a href='https://arxiv.org/abs/2003.04882' target='_blank'><img src="/images/control_diagram.jpg"/></a> </td>
+<td>
+    <strong>Optimization Based Hierarchical Motion Planning for Autonomous Racing</strong><br>
+    <strong>J. Vazquez*</strong>, M. Brühlmeier*, A. Liniger*, A. Rupenyan, J. Lygeros<br>
+    IROS 2020 Best Paper Award Finalist <br>
+    
+[<a href='javascript:;'
+    onclick='$("#abs_vazquez2020hierarchical").toggle()'>Abstract</a>] [<a href='https://arxiv.org/abs/2003.04882' target='_blank'>arXiv</a>] <br>
+    
+<div id="abs_vazquez2020hierarchical" style="text-align: justify; display: none" markdown="1">
+In this paper we propose a hierarchical controller for autonomous racing where the same vehicle model is used in a two level optimization framework for motion planning. The high-level controller computes a trajectory that minimizes the lap time, and the low-level nonlinear model predictive path following controller tracks the computed trajectory online. Following a computed optimal trajectory avoids online planning and enables fast computational times. The efficiency is further enhanced by the coupling of the two levels through a terminal constraint, computed in the high-level controller. Including this constraint in the real-time optimization level ensures that the prediction horizon can be shortened, while safety is guaranteed. This proves crucial for the experimental validation of the approach on a full size driverless race car. The vehicle in question won two international student racing competitions using the proposed framework; moreover, our hierarchical controller achieved an improvement of 20% in the lap time compared to the state of the art result achieved using a very similar car and track.
+</div>
+
+</td>
+</tr>
+
+</table>
 
 
 
