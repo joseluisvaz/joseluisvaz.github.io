@@ -14,6 +14,8 @@ During my time at **ETH Zurich**, I had the pleasure to be part of **AMZ driverl
 
 After AMZ driverless, I spent time at **Embotech AG** where I designed optimal control and estimation algorithms for commercial vehicles as part of my master's degree internship. Recently, I have been interested in how to use **Machine Learning** to assist classical robotics algorithms.
 
+![pilatus_driverless](/images/pilatus_wide.jpg)
+
 ## Publications
 
 <table class="table table-hover" cellspacing="0" cellpadding="0">
