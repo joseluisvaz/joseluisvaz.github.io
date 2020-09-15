@@ -144,6 +144,7 @@ td > code {
   border: 1px solid $lighter-gray;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
+  color: $lighter-gray;
 
   &:before, &:after {
     letter-spacing: -0.2em;
