@@ -45,13 +45,13 @@ In this paper we propose a hierarchical controller for autonomous racing where t
 <td class="col-sm-2" width="40%"><a href='https://arxiv.org/abs/2003.04882' target='_blank'><img src="/images/projects/3dv_project.jpg"/></a> </td>
 <td>
     <strong> Deep Dense Bundle Adjustment Networks</strong><br>
-    3D Vision -- Final Project<br>
+    3D Vision<br>
     
 [<a href='javascript:;'
     onclick='$("#abs_3dv_project").toggle()'>description</a>] [<a href='https://arxiv.org/abs/2003.04882' target='_blank'>report</a>] <br>
     
 <div id="abs_3dv_project" style="text-align: justify; display: none" markdown="1">
-This project focuses on developing a neural network architecture, which has embedded a non-linear least squares (NL-LS) optimization problem in its core. This means that gradients are being back-propagated from the output of this NL-LS problem to its input. The architecture is based on the work from Tang, et al [19] and it is extended using ideas from Lv et al. [16]. The main focus of this work is to provide a working, trainable implementation of a differentiable bundle adjustment layer. Extensions to [19] are suggested to improve pose estimation accuracy via modifications in the CNN based feature network, the damping factor estimation layer, and an additional subnetwork for the camera pose initialization
+This project focuses on developing a neural network architecture, which has embedded a non-linear least squares (NL-LS) optimization problem in its core. This means that gradients are being back-propagated from the output of this NL-LS problem to its input. The architecture is based on the work from Tang, et al. and it is extended using ideas from Lv et al. The main focus of this work is to provide a working, trainable implementation of a differentiable bundle adjustment layer. Extensions to Tang, et al. are suggested to improve pose estimation accuracy via modifications in the CNN based feature network, the damping factor estimation layer, and an additional subnetwork for the camera pose initialization
 </div>
 
 </td>
@@ -61,7 +61,7 @@ This project focuses on developing a neural network architecture, which has embe
 <td class="col-sm-2" width="40%"><a href='https://arxiv.org/abs/2003.04882' target='_blank'><img src="/images/projects/learning_sampling_half.png"/></a> </td>
 <td>
     <strong>Generative Models for Sampling Based Motion Planning on Distance Fields</strong><br>
-    Perception and Learning for Robotics -- Final Project<br>
+    Perception and Learning for Robotics<br>
     
 [<a href='javascript:;'
     onclick='$("#abs_plr_project").toggle()'>description</a>] [<a href='https://arxiv.org/abs/2003.04882' target='_blank'>report</a>] <br>
@@ -77,7 +77,7 @@ Sampling based motion planners (SMBP’s) suffer from the use of uninformative s
 <td class="col-sm-2" width="40%"><a href='https://arxiv.org/abs/2003.04882' target='_blank'><img src="/images/projects/cartpole.png"/></a> </td>
 <td>
     <strong>Assessing Generalization in Probabilistic Ensembles for Model-Based Deep Reinforcement Learning</strong><br>
-    Deep Learning -- Final Project<br>
+    Deep Learning<br>
     
 [<a href='javascript:;'
     onclick='$("#abs_dl_project").toggle()'>description</a>] [<a href='https://arxiv.org/abs/2003.04882' target='_blank'>report</a>] <br>
@@ -93,7 +93,7 @@ Generalization in reinforcement learning refers to an agent’s ability to perfo
 <td class="col-sm-2"><a href='https://www.youtube.com/watch?v=dyNT3g425sU&feature=youtu.be' target='_blank'><img src="/images/projects/vision.jpg"/></a> </td>
 <td>
     <strong> Sparse Monocular Visual Odometry Pipeline </strong><br>
-    Vision Algorithm for Mobile Robotics -- Final Project<br>
+    Vision Algorithm for Mobile Robotics<br>
     
 [<a href='javascript:;'
     onclick='$("#abs_vision").toggle()'>description</a>] [<a href='https://arxiv.org/abs/2003.04882' target='_blank'>report</a>] [<a href='https://www.youtube.com/watch?v=dyNT3g425sU&feature=youtu.be' target='_blank'>video</a>]<br>
