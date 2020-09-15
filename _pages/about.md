@@ -12,7 +12,7 @@ I am a master student at **ETH Zurich** majoring in **Robotics**. I am intereste
 
 During my time at **ETH Zurich**, I had the pleasure to be part of **AMZ driverless**. An inter-disciplinary robotics team with the goal of building the fastest formula style autonomous car. We managed to win two international competitions, **Formula Student Germany** and **Formula Student East** with our vehicle, **pilatus driverless**.
 
-After AMZ driverless, I spent time at **Embotech AG** where I designed optimal control and estimation algorithms for commercial vehicles as part of my master's degree internship. Recently, I have been interested in how to use **Machine Learning** to assist classical robotics algorithms.
+After AMZ driverless, I spent time at **Embotech AG** where I designed optimal control and state estimation algorithms for commercial vehicles as part of my master's degree internship. Recently, I have been interested in how to use **Machine Learning** to assist classical robotics algorithms.
 
 ![pilatus_driverless](/images/pilatus_wide.jpg)
 
