@@ -74,7 +74,7 @@ Sampling based motion planners (SMBP’s) suffer from the use of uninformative s
 </tr>
 
 <tr class="row">
-<td class="col-sm-2" width="40%"><a href='https://arxiv.org/abs/2003.04882' target='_blank'><img src="/images/projects/cartpole.png"/></a> </td>
+<td class="col-sm-2" width="40%"><a href="{{ site.url }}/deep_learning_report.pdf" target='_blank'><img src="/images/projects/cartpole.png"/></a> </td>
 <td>
     <strong>Assessing Generalization in Probabilistic Ensembles for Model-Based Deep Reinforcement Learning</strong><br>
     Deep Learning<br>
