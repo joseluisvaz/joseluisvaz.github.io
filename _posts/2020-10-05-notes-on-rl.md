@@ -137,8 +137,7 @@ $$
 
 $V_{\phi_{old}}$ in practice it just evaluates the next states $s_{t+1}$ using the value network. This should not be added to the computation graph for the autodiff. An actor-critic algorithm works like follows and it basically trains a value function on the go. 
 
-![actor_critic](/images/notes/actor-critic.png)
-<!-- <img class="center" width=50% src="/images/notes/actor-critic.png"/> -->
+<img class="center" width="70%" src="/images/notes/actor-critic.png"/>
 
 Actor critic methods have lower variance than normal policy gradient but they are not unbiased. PG is unbiased but maybe tricky to train because it can have a huge variance.
 
