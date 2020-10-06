@@ -77,7 +77,7 @@ We can use this estimate to update out policy via a standard gradient descent $\
 
 **NOTE**: This algorithm also works with partial observability, $\pi$ could be conditioned on $o_t$ instead of $s_t$.
 
-<img src="/images/notes/reinforce.png" width=50%/>
+<img src="/images/notes/reinforce.png" width="50%"/>
 
 ### Variance reduction tricks
 
