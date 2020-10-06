@@ -66,7 +66,7 @@ $$
   **examples:** Dyna, Guided policy search
 
 
-## Policy gradient methods: REINFORCE
+# Policy gradient methods:
 
 REINFORCE is a model-free reinforcement learning algorithm that uses on-policy data to estimate a gradient of our policy $\pi_\theta$ by using an estimate of the cumulative reward gotten from the on-policy data. For more information about the derivation of the policy gradient algorithm, you can check the courses notes. The PG algorithm lets us estimate the gradient of our policy without the need of knowing the full trajectory distribution $p(\tau)$. The algorithm computes the following gradient
 
@@ -125,14 +125,15 @@ $$
 \bar{J}(\theta) = \frac{1}{N} \sum_n^N \left[ \sum_{t=1}^T \log \pi_\theta(a_t| s_t) \hat{Q}\right]
 $$
 
-**NOTES**: Gradients are very noisy so use large batch sizes, learning rate is tricky to tune.
+**NOTES**: Gradients are very noisy so use large batch sizes, learning rate ihttps://www.myfreecams.com/#MissVictorias tricky to tune.
 
 ### Estimating value functions for Actor-Critic methods
 
-We can estimate a value function by getting a single sample estimate of our reward (in the case of single sample, it is the same as the estimate of the reward function). $V^\pi(s_t) \approx \sum_t r(s_t, a_t)$. We can use this estimate to train a neural network using Stochastic Gradient Descent (SGD) via the following loss function. This loss function is incorrect because it uses the previous estimate of $V^\pi$ but it works better in practice.
+We can estimate a value function by getting a single sample estimate of our reward (in the case of single sample, it is the same as the estimate of the reward function). $V^\pi(s_t) \approx \sum_t r(s_t, a_t)$. We can use this estimate to train a neural network using Stochastic Gradient Descent (SGD) via the following loss function. $\mathcal{L}_2$ function is incorrect because it uses the previous estimate of $V^\pi$ but it works better in practice than just optimizing the empirical estimate $\mathcal{L}_1$.
 
 $$
-\mathcal{L}(\phi) = \frac{1}{2} = \sum_i \| \hat{V}_\phi^\pi(s_i) - \left(r(s_i, a_i) + \gamma V^{\pi}_{\phi_{old}} (s_{t+1}) \right) \|^2
+\mathcal{L}_1(\phi) = \frac{1}{2} \sum_i \| \hat{V}_\phi^\pi(s_i) - \sum_t r(s_t, a_t) \|^2 \\
+\mathcal{L}_2(\phi) = \frac{1}{2} \sum_i \| \hat{V}_\phi^\pi(s_i) - \left(r(s_i, a_i) + \gamma V^{\pi}_{\phi_{old}} (s_{t+1}) \right) \|^2
 $$
 
 $V_{\phi_{old}}$ in practice it just evaluates the next states $s_{t+1}$ using the value network. This should not be added to the computation graph for the autodiff. An actor-critic algorithm works like follows and it basically trains a value function on the go. 
@@ -160,7 +161,67 @@ The second terms approximated the tail of the value and the third term centers t
 We can create a weighted average of $\hat{A}_n^\pi$ estimators and weight them by $\lambda^{n-1}$ because we want estimates with lower variance (therefore weight more estimates with lower $n$) (Note that $\lambda < 1$). We therefore get the following advantage estimate
 
 $$
-\hat{A}_{GAE}^\pi(s_t, a_t) = \sum_{n}^\infty \lambda^{n-1}\hat{A}_n^\pi(s_t, a_t) = \sum_{t'=t}^\infty (\gamma\lambda)^{t'-t}(r(s_{t'}, a_{t'}) + \gamma \hat{V}_\phi^\pi(s_{t'+1}) - \hat{V}_\phi^\pi(s^{t'}))
+\hat{A}_{GAE}^\pi(s_t, a_t) = \sum_{n}^\infty \lambda^{n-1}\hat{A}_n^\pi(s_t, a_t) \\
+\hat{A}_{GAE}^\pi(s_t, a_t) = \sum_{t'=t}^\infty (\gamma\lambda)^{t'-t}(r(s_{t'}, a_{t'}) + \gamma \hat{V}_\phi^\pi(s_{t'+1}) - \hat{V}_\phi^\pi(s^{t'}))
 $$
 
 This could be seen as a combination of Monte Carlo reward samples and the use of function approximation like in standard actor-critic. $\lambda$ then serves as a hyperparameter to tradeoff between bias and variance. The lower $\lambda$ the faster we will forget about the higher $n$ advantages and this gives us a lower variance but higher bias. If $\lambda \approx 1$ we are gonna care a lot about the sampled rewards and this is gonna increase the variance but also lower our bias.
+
+# Value-function methods
+
+The following section will explore value function methods, these do not have a policy (actor), they learn the critic dicrecly. 
+
+### Fitted value iteration algorithm
+
+Because of the course of dimensionality we cannot learn a tabular value function of reasonably big dimensionaliy using standard value and policy iteration (VI and PI).  We can learn a value function with a neural network by doing "Fitted value itration". This algorithm has two steps and they are repeated until the value function is learned
+
+$$
+Q^\pi(s, a) = r(s, a) + \gamma \mathbb{E}_{s'}[V_\phi(s')]\\
+\phi^* = \text{argmax}_\phi \frac{1}{2} \sum_i \| \hat{V}_\phi^\pi(s_i) -  \text{max}_aQ^\pi(s_t, a_t) \|^2
+$$
+
+Bare in mind that this assummes that the transition dynamics are known and we can enumerate all the actions for every step we sample. 
+
+Remarks:
+* Tabular VI always converge because it is a contraction w.r.t. $\infty$ norm
+* Fitted VI dos not converge because there is a contraction w.r.t. $l_2$ norm (The square loss) after the Bellman-update contraction. Unfortunately these contractions do not compose and it could be that you diverge.
+
+### Fitted Q iteration algorithm
+
+This algorithm will not require us to know the system dynamics to be able to compute the expectation of the value function (reward to go) from the next time step.
+
+$$y_i = r(s, a) + \gamma \mathbb{E}[V_\phi(s')] \approx r(s, a) + \gamma \text{max}_{a'}Q_\phi(s', a')\\
+\phi^* = \text{argmax}_\phi \frac{1}{2} \sum_i \| \hat{Q}_\phi^\pi(s_i, a_i) - y_i \|^2
+$$
+
+In this method we do not need to enumerate all actions but we need a way to optimize the function, $max_{a'}Q_\phi(s', a')$. 
+
+Remarks:
+* Fitted Q iteration is an **off-policy** algorithm because it just makes the assumption that your policy s the $\text{argmax}$ policy 
+* Does not require knowledge of the transition function $T_{ij}$, it just uses evaluations of the $Q_\phi$ function estimate.
+* If we run this in an online fashion by taking single transitions and single gradient steps we are doing **Q-learning**
+* Same contraction problems as with fitted VI
+
+### Fixing Q learning
+
+There is a problem with Q learning, the target that we are trying to use are always moving with each iteration, additionaly our samples are not i.i.d. We can fix the problem of not i.i.d samples by creating a dataset called a "replay buffer" from this buffer we can sample batches to train our neural network.
+
+The second problem can be fixed by having auxiliary neural network parameters $\phi'$ and updating this every $N$ steps or slowly by poliak averaging $\phi' \leftarrow \tau \phi' + (1-\tau)\phi$, this just updates the parameters very slowly, usually $\tau = 0.999 $. The algorithm works as follows and it is called DQN if we update the parameters every $N$ steps. 
+
+
+<img class="center" width="70%" src="/images/notes/dqn.png"/>
+
+To extedn Q-learning to continuous action spaces we can use stochastic optimization like [CEM](https://en.wikipedia.org/wiki/Cross-entropy_method) or [CMA-ES](https://en.wikipedia.org/wiki/CMA-ES) to maximize $max_{a'} Q(s', a')$. We can also represent an easily maximizable Q function that is quadratic in the actions but complicated in the state (This is called Normalized Advantage Functions), the max of this function is simply the value function $V_\phi(s)$
+
+$$
+Q_\phi(s_t, a_t) = -\frac{1}{2}(a -\mu_\phi(s))^T P_\phi(s)(a - \mu_\phi(s)) + V_\phi(s)
+$$
+
+### DDPG (Deep Deterministic Policy Gradients) (Off-Policy)
+
+Another option is to use [DDPG](https://towardsdatascience.com/deep-deterministic-policy-gradient-ddpg-theory-and-implementation-747a3010e82f#:~:text=Deep%20Deterministic%20Policy%20Gradient%20(DDPG)%20is%20a%20reinforcement%20learning%20technique,Q%2Dlearning%20and%20Policy%20gradients.&text=The%20actor%20is%20a%20policy,a%20probability%20distribution%20over%20actions.) which learns to optimize $Q(s',\text{argmax}_{a'}Q(s', a'))$ by learning a neural network $\mu_\theta(s)$ that estimates this $\text{argmax}$. The gradients for this network are computed using the chain rule
+
+<img class="center" width="70%" src="/images/notes/ddpg.png"/>
+
+
+
