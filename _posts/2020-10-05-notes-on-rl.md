@@ -219,7 +219,7 @@ $$
 
 ### DDPG (Deep Deterministic Policy Gradients) (Off-Policy)
 
-Another option is to use [DDPG](https://towardsdatascience.com/deep-deterministic-policy-gradient-ddpg-theory-and-implementation-747a3010e82f#:~:text=Deep%20Deterministic%20Policy%20Gradient%20(DDPG)%20is%20a%20reinforcement%20learning%20technique,Q%2Dlearning%20and%20Policy%20gradients.&text=The%20actor%20is%20a%20policy,a%20probability%20distribution%20over%20actions.) which learns to optimize $Q(s',\text{argmax}_{a'}Q(s', a'))$ by learning a neural network $\mu_\theta(s)$ that estimates this $\text{argmax}$. The gradients for this network are computed using the chain rule
+Another option is to use [DDPG](https://towardsdatascience.com/deep-deterministic-policy-gradient-ddpg-theory-and-implementation-747a3010e82f#:~:text=Deep%20Deterministic%20Policy%20Gradient%20(DDPG)%20is%20a%20reinforcement%20learning%20technique,Q%2Dlearning%20and%20Policy%20gradients.&text=The%20actor%20is%20a%20policy,a%20probability%20distribution%20over%20actions.) which learns to optimize $Q(s',\text{argmax}_{a'}Q(s', a'))$ by learning a neural network that estimates this $\text{argmax}$. The gradients for this network are computed using the chain rule
 
 <img class="center" width="70%" src="/images/notes/ddpg.png"/>
 
