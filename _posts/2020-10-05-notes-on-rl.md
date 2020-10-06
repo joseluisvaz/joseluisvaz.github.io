@@ -78,7 +78,7 @@ We can use this estimate to update out policy via a standard gradient descent $\
 **NOTE**: This algorithm also works with partial observability, $\pi$ could be conditioned on $o_t$ instead of $s_t$.
 
 <a>
-<img class="center" width=50% src="/images/notes/reinforce.png">
+<img class="center" width=50% src="/images/notes/reinforce.png"/>
 </a>
 
 ### Variance reduction tricks
@@ -140,15 +140,15 @@ $V_{\phi_{old}}$ in practice it just evaluates the next states $s_{t+1}$ using t
 
 
 <a>
-<img class="center" width=50% src="/images/notes/actor-critic.png">
+<img class="center" width=50% src="/images/notes/actor-critic.png"/>
 </a>
 
 Actor critic methods have lower variance than normal policy gradient but they are not unbiased. PG is unbiased but maybe tricky to train because it can have a huge variance.
 
 
 $$
-\nabla_\theta J(\theta)  \approx \frac{1}{N} \sum_n^N \left[ \sum_{t=1}^T \nabla_\theta \log \pi_\theta(a_t| s_t) (r(s_t, a_t) + \gamma V^\pi(s_{t+1}) - V^\pi(s_t) ) \right] \\
+\nabla_\theta J(\theta)  \approx \frac{1}{N} \sum_n^N \left[ \sum_{t=1}^T \nabla_\theta \log \pi_\theta(a_t| s_t) (r(s_t, a_t) + \gamma \hat{V}_\phi^\pi(s_{t+1}) - \hat{V}_\phi^\pi(s_t) ) \right] \\
 \nabla_\theta J(\theta)  \approx \frac{1}{N} \sum_n^N \left[ \sum_{t=1}^T \nabla_\theta \log \pi_\theta(a_t| s_t) (\sum_{t'=t} \gamma^{t' - t} r(s_t, a_t) - V^\pi(s_t) ) \right]
 $$
 
-The first equation is the actor critic gradient, the second equation is using the value function estimate as a state dependent baseline, this will have no bias but still higher variance than pure actor-critic.
+The first equation is the actor critic gradient, the second equation is using the value function estimate as a state dependent baseline, this will have no bias and lower variance
