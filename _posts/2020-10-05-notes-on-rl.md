@@ -138,7 +138,8 @@ $$
 
 $V_{\phi_{old}}$ in practice it just evaluates the next states $s_{t+1}$ using the value network. This should not be added to the computation graph for the autodiff. An actor-critic algorithm works like follows and it basically trains a value function on the go. 
 
-<img class="center" width=50% src="/images/notes/actor-critic.png"/>
+![actor_critic](/images/notes/actor-critic.png)
+<!-- <img class="center" width=50% src="/images/notes/actor-critic.png"/> -->
 
 Actor critic methods have lower variance than normal policy gradient but they are not unbiased. PG is unbiased but maybe tricky to train because it can have a huge variance.
 
@@ -155,3 +156,11 @@ $$
 
 The second terms approximated the tail of the value and the third term centers the total reward
 
+### Generalized advantage estimation
+
+We can create a weighted average of $\hat{A}_n^\pi$ estimators and weight them by $\lambda^{n-1}$ because we want estimates with lower variance (therefore weight more estimates with lower $n$) (Note that $\lambda < 1$). We therefore get the following advantage estimate
+$$
+\hat{A}_{GAE}^\pi(s_t, a_t) = \sum_{n}^\infty \lambda^{n-1}\hat{A}_n^\pi(s_t, a_t) = \sum_{t'=t}^\infty (\gamma\lambda)^{t'-t}(r(s_{t'}, a_{t'}) + \gamma \hat{V}_\phi^\pi(s_{t'+1}) - \hat{V}_\phi^\pi(s^{t'}))
+$$
+
+$\lambda$ then serves as a hyperparameter to tradeoff between bias and variance. The lower $\lambda$ the faster we will forget about the higher $n$ advantages and this gives us a lower variance but higher bias. If $\lambda \approx 1$ we are gonna care a lot about the sampled rewards and this is gonna increase the variance but also lower our bias.
