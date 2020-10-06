@@ -77,9 +77,7 @@ We can use this estimate to update out policy via a standard gradient descent $\
 
 **NOTE**: This algorithm also works with partial observability, $\pi$ could be conditioned on $o_t$ instead of $s_t$.
 
-<a>
-<img class="center" width=50% src="/images/notes/reinforce.png"/>
-</a>
+<img src="/images/notes/reinforce.png"/>
 
 ### Variance reduction tricks
 
@@ -97,6 +95,7 @@ $$
 $$
 
 We can also modify the algorithm to use the true expected reward-to-go $Q^\pi(s_t, a_t)$, as a baseline we can average these rewards to go using an empirical estimate. This empirical estimate is an approximation of the value function $V^\pi(s_t)$ as seen before. 
+
 $$
 \nabla_\theta J(\theta) \approx  \frac{1}{N} \sum_n^N \left[ \sum_{t=1}^T \nabla_\theta \log \pi_\theta(a_t| s_t) \left(Q^\pi(s_t, a_t) - V_\pi(s_t)\right) \right] \\
 \approx  \frac{1}{N} \sum_n^N \left[ \sum_{t=1}^T \nabla_\theta \log \pi_\theta(a_t| s_t) A^\pi(s_t, a_t) \right] \\
@@ -150,6 +149,7 @@ $$
 $$
 
 The first equation is the actor critic gradient, the second equation is using the value function estimate as a state dependent baseline, this will have no bias and lower variance. We can also combine these two by estimating the cumulative rewards until a fixed time horizon $t+n$. 
+
 $$
 \hat{A}_n^\pi (s_t, a_t) = \sum_{t'=t}^{t+n} \gamma^{t' - t} r(s_{t'}, a_{t'}) + \gamma^n \hat{V}_\phi^\pi (s_{t+n}) - \hat{V}_\phi^\pi(s_t)
 $$
@@ -159,8 +159,9 @@ The second terms approximated the tail of the value and the third term centers t
 ### Generalized advantage estimation
 
 We can create a weighted average of $\hat{A}_n^\pi$ estimators and weight them by $\lambda^{n-1}$ because we want estimates with lower variance (therefore weight more estimates with lower $n$) (Note that $\lambda < 1$). We therefore get the following advantage estimate
+
 $$
 \hat{A}_{GAE}^\pi(s_t, a_t) = \sum_{n}^\infty \lambda^{n-1}\hat{A}_n^\pi(s_t, a_t) = \sum_{t'=t}^\infty (\gamma\lambda)^{t'-t}(r(s_{t'}, a_{t'}) + \gamma \hat{V}_\phi^\pi(s_{t'+1}) - \hat{V}_\phi^\pi(s^{t'}))
 $$
 
-$\lambda$ then serves as a hyperparameter to tradeoff between bias and variance. The lower $\lambda$ the faster we will forget about the higher $n$ advantages and this gives us a lower variance but higher bias. If $\lambda \approx 1$ we are gonna care a lot about the sampled rewards and this is gonna increase the variance but also lower our bias.
+This could be seen as a combination of Monte Carlo reward samples and the use of function approximation like in standard actor-critic. $\lambda$ then serves as a hyperparameter to tradeoff between bias and variance. The lower $\lambda$ the faster we will forget about the higher $n$ advantages and this gives us a lower variance but higher bias. If $\lambda \approx 1$ we are gonna care a lot about the sampled rewards and this is gonna increase the variance but also lower our bias.
