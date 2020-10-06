@@ -138,10 +138,7 @@ $$
 
 $V_{\phi_{old}}$ in practice it just evaluates the next states $s_{t+1}$ using the value network. This should not be added to the computation graph for the autodiff. An actor-critic algorithm works like follows and it basically trains a value function on the go. 
 
-
-<a>
 <img class="center" width=50% src="/images/notes/actor-critic.png"/>
-</a>
 
 Actor critic methods have lower variance than normal policy gradient but they are not unbiased. PG is unbiased but maybe tricky to train because it can have a huge variance.
 
@@ -151,4 +148,10 @@ $$
 \nabla_\theta J(\theta)  \approx \frac{1}{N} \sum_n^N \left[ \sum_{t=1}^T \nabla_\theta \log \pi_\theta(a_t| s_t) (\sum_{t'=t} \gamma^{t' - t} r(s_t, a_t) - V^\pi(s_t) ) \right]
 $$
 
-The first equation is the actor critic gradient, the second equation is using the value function estimate as a state dependent baseline, this will have no bias and lower variance
+The first equation is the actor critic gradient, the second equation is using the value function estimate as a state dependent baseline, this will have no bias and lower variance. We can also combine these two by estimating the cumulative rewards until a fixed time horizon $t+n$. 
+$$
+\hat{A}_n^\pi (s_t, a_t) = \sum_{t'=t}^{t+n} \gamma^{t' - t} r(s_{t'}, a_{t'}) + \gamma^n \hat{V}_\phi^\pi (s_{t+n}) - \hat{V}_\phi^\pi(s_t)
+$$
+
+The second terms approximated the tail of the value and the third term centers the total reward
+
