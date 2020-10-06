@@ -12,15 +12,17 @@ These are personal notes on reinforcement learning, mainly based on the content 
 
 The main optimization problem that reinforcement learning tries to tackle is maximizing the expected reward along a time horizon $T$ (where $T$ could be $\infty$) in a Markov Decision Process [(MDP)](https://en.wikipedia.org/wiki/Markov_decision_process), w.r.t. the policy parameters $\theta$.
 
-$$ \theta^\star = \argmax_\theta \mathbb{E}_{\tau\sim p_{\theta}(\tau)} \left[ \sum_t r(s_t, a_t) \right] = \argmax_\theta J(\theta) $$
+$$ \theta^\star = \text{argmax}_\theta \mathbb{E}_{\tau\sim p_{\theta}(\tau)} \left[ \sum_t r(s_t, a_t) \right] = \text{argmax}_\theta J(\theta) $$
 
-$$p_\theta(s_1, a_1, \dots, s_T, a_T) = p(s_1) \prod_{t=1}^T \pi_\theta(a_t | s_t) p(s_{t+1} | s_t, a_t)$$
+$$ 
+p_\theta(s_1, a_1, \dots, s_T, a_T) = p(s_1) \prod_{t=1}^T \pi_\theta(a_t | s_t) p(s_{t+1} | s_t, a_t) 
+$$
 
-where $\pi_\theta(a_t | s_t)$ is the policy in the MDP and $p(s_{t+1}|s_t, a_t)$ is the transition function (or dynamics) of the environment (system).
+where $ \pi_\theta (a_t | s_t) $ is the policy in the MDP and $ p(s_{t+1}|s_t, a_t) $ is the transition function (or dynamics) of the environment (system).
 
 In the finite horizon case ($T$ finite) the expectation is taken w.r.t the state-action marginal $p_\theta(s_t,a_t)$, thus we seek to maximize the following optimization problem. This is called the undiscounted average reward.
 
-$$\theta^\star = \argmax_\theta \frac{1}{T} \sum_{t=1}^T  \mathbb{E}_{ (s_t, a_t) \sim p_{\theta}(s_t, a_t)} \left[  r(s_t, a_t) \right]$$
+$$\theta^\star = \text{argmax}_\theta \frac{1}{T} \sum_{t=1}^T  \mathbb{E}_{ (s_t, a_t) \sim p_{\theta}(s_t, a_t)} \left[  r(s_t, a_t) \right]$$
 
 ### Anatomy of a RL problem
 
