@@ -139,11 +139,12 @@ figcaption > code,
 td > code {
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
-  font-size: $type-size-6;
-  background: $code-background-color;
+  font-size: $type-size-5;
+  background: $code-background-color-dark;
   border: 1px solid $lighter-gray;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
+  color: $lighter-gray;
 
   &:before, &:after {
     letter-spacing: -0.2em;

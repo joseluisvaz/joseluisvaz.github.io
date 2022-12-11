@@ -29,7 +29,7 @@ comments:
   facebook:
     appid                :
     num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
+    colorscheme          : "dark" # "light" (default), "dark"
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
   branch                 : "gh-pages" # "master", "gh-pages"
@@ -80,11 +80,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "José L. Vázquez"
-  avatar           : "profile.png"
-  bio              : "Master Student in Robotics"
-  location         : "Zurich, Switzeland"
-  employer         : "ETH Zurich"
+  name             : "José Vázquez"
+  avatar           : "profile.jpg"
+  bio              : "Motion Planning Engineer"
+  location         : "Munich, Germany"
+  employer         : "Argo AI"
   pubmed           : 
   googlescholar    : # "http://yourfullgooglescholarurl.com"
   email            :
@@ -102,7 +102,7 @@ author:
   instagram        :
   impactstory      : # "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "https://www.linkedin.com/in/josevazesp/"
+  linkedin         : "josevazesp"
   orcid            : # "http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :

@@ -11,32 +11,35 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* **2021 (Expected): ETH Zurich**
+  * MSc. Robotics, Systems and Control
+
+* **2018: Tec de Monterrey**
+  * BSc. Mechatronics Engineering
+
+* **2015 (Semester abroad): UAS Esslingen**
+  * BSc. Automotive Engineering
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* **Fall 2019: Software Engineering Internship (Motion Planning and Control)** 
+  * **Embotech AG (Zurich Switzerland)**
+  * Developed optimal control and estimation algorithms for autonomous vehicles 
 
-Publications
+* **2018-2019: Software Engineer (Motion Planning and Control)**
+  * **AMZ Driverless**
+  * Developed optimal control algorithms for an autonomous racing vehicle.
+
+* **2017-2018: Software Engineering / Data Science Internship**
+  * **Crabi (Guadalajara, Mexico)**
+  * Developed predictive models for driving behavior and insurance pricing
+
+* **Summer 2016: Software Engineering Internship**
+  * **Mercedes-Benz (Stuttgart, Germany)**
+  * Developed data analysis tools for the ADAS team
+
+<!-- Publications
 ======
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
@@ -52,8 +55,9 @@ Teaching
 ======
   <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+  {% endfor %}</ul> -->
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Mathematics tutor for undergrads (Tec de Monterrey, Hermosillo)
+* English tutor for kids (In colaboration with a local public highschool in Hermosillo, Mexico)
