@@ -8,13 +8,11 @@ redirect_from:
   - /about.html
 ---
 
-Currently I am a Motion Planning Engineer at **Argo AI**. I am interested in all topics surrounding **Self-driving Vehicles**. More specifically, I am interested in developing robots capable to interact with humans in an intelligent manner. I am also interested in the interplay between **Machine Learning** and **Optimization Based Algorithms** for robot motion planning, control and prediction/forecasting. 
+I am a roboticist interested in building algorithms and tools to enable autonomous robots at scale. I am currently a Senior Software Engineer in the Behavior team at Nuro. Previously, I have worked as a software/planning engineer at autonomy companies like Argo AI, Kodiak Robotics, and Ford.
 
-Previously I was a master student of Robotics, Systems and Controls at **ETH Zurich**; and before that bachelor student studying **Mechatronics** at **Tec de Monterrey**, where I had the opportunity to intern at **Daimler AG** in the automated trucks department and at **Crabi SA** as a data scientist.
+Before working in industry, I completed a master's degree in robotics at ETH Zurich; and before that, I did my undergraduate studies in mechatronics at Tec de Monterrey, where I discovered my passion for robotics through engaging projects and internships abroad.
 
-During my time at **ETH Zurich**, I had the pleasure to be part of **AMZ driverless**. An inter-disciplinary robotics team with the goal of building the fastest formula style autonomous car. We managed to win two international competitions, **Formula Student Germany** and **Formula Student East** with our vehicle, **pilatus driverless**.
-
-After AMZ driverless, I spent time at **Embotech AG** where I designed optimal control and state estimation algorithms for commercial vehicles as part of my master's degree internship. Recently, I have been interested in how to use **Machine Learning** and **Game Theory** to assist classical robotics algorithms.
+If I had to name a single experience that defined my robotics career, I would mention my time at AMZ driverless, an interdisciplinary robotics team with the goal of building the fastest formula-style autonomous car. We managed to win two international competitions, Formula Student Germany and Formula Student East, with our vehicle, pilatus driverless.
 
 ![pilatus_driverless](/images/pilatus_wide.jpg)
 
@@ -57,7 +55,6 @@ In this paper we propose a hierarchical controller for autonomous racing where t
 </tr>
 
 </table>
-
 
 ## Projects
 

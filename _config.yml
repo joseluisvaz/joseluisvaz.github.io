@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "José L. Vázquez"
+title                    : "Jose Luis Vazquez-Espinoza"
 title_separator          : "-"
-name                     : &name "José L. Vázquez"
-description              : &description "Robotics Master Student"
+name                     : &name "Jose Luis Vazquez-Espinoza"
+description              : &description "Motion Planning Engineer"
 url                      : https://joseluisvaz.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "joseluisvaz.github.io"
@@ -80,14 +80,14 @@ analytics:
 
 # Site Author
 author:
-  name             : "José Vázquez"
+  name             : "Jose Luis Vazquez-Espinoza"
   avatar           : "profile.jpg"
   bio              : "Motion Planning Engineer"
-  location         : "Munich, Germany"
-  employer         : "Argo AI"
+  location         : "San Francisco Region, CA"
+  employer         : "Nuro AI"
   pubmed           : 
-  googlescholar    : # "http://yourfullgooglescholarurl.com"
-  email            :
+  googlescholar    : "https://scholar.google.com/citations?user=P0WZnIMAAAAJ&hl=en"
+  email            : 
   researchgate     : # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
